@@ -17,19 +17,21 @@ class AuthorSerializer(serializers.ModelSerializer):
 
 
 class PostSerializer(serializers.ModelSerializer):
-    #username = serializers.ReadOnlyField(source='author.username') # attr serializer
-    #author_email = serializers.ReadOnlyField(source='author.email')
+    author_username = serializers.ReadOnlyField(source='author.username') # attr serializer
+    # author = AuthorSerializer()
 
-    author = AuthorSerializer()
+    # ReadOnlyField를 적절히 사용해야하는 이유
+    # author라는 serializer객체를 만들면
 
     class Meta:
         model = Post
         fields = [
             'pk',
-            'author', # Post 모델에는 username이라는 항목이 없는데 위에 attr로 지정해 사용가능하다
-            #'username',
+            #'author', # Post 모델에는 username이라는 항목이 없는데 위에 attr로 지정해 사용가능하다
+            'author_username',
             #'email',
             'message',
             'created_at',
             'updated_at',
+            'is_public',
         ]
