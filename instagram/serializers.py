@@ -1,4 +1,5 @@
-from rest_framework.serializers import ModelSerializer
+from django.contrib.auth import get_user_model
+from rest_framework import serializers
 from .models import Post
 
 # 보통 http api 통신을 할 때 json이나 xml을 이용하여 진행하게 되는데 요즘에는 용량이 작은 json을 주로 사용한다
@@ -6,7 +7,29 @@ from .models import Post
 # Serializer는 이것을 처리해주는 용도이다
 # serializer = db -> json 변환
 # deserializer = json -> db 변환환
-class PostSerializer(ModelSerializer):
+
+#중첩 serializer
+class AuthorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = get_user_model()
+        fields = ['username', 'email']
+
+
+
+class PostSerializer(serializers.ModelSerializer):
+    #username = serializers.ReadOnlyField(source='author.username') # attr serializer
+    #author_email = serializers.ReadOnlyField(source='author.email')
+
+    author = AuthorSerializer()
+
     class Meta:
         model = Post
-        fields = '__all__'
+        fields = [
+            'pk',
+            'author', # Post 모델에는 username이라는 항목이 없는데 위에 attr로 지정해 사용가능하다
+            #'username',
+            #'email',
+            'message',
+            'created_at',
+            'updated_at',
+        ]
