@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # Third
     'rest_framework',
     # App
+    'instagram',
 ]
 
 MIDDLEWARE = [
