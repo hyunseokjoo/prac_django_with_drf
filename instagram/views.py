@@ -53,14 +53,14 @@ class PostViewSet(ModelViewSet):
         ip = self.request.META['REMOTE_ADDR']
         serializer.save(author=author, ip=ip)
 
-    @action(detail=False, methosds=['GET'])
+    @action(detail=False, methods=['GET'])
     def public(self, request0):
         qs = self.get_queryset().filter(is_public=True)
         serializer = self.get_serializer(qs, many=True)
         # serializer = PostSerializer(qs, many=True)
         return Response(serializer.data)
 
-    @action(detail=False, methosds=['PATCH'])
+    @action(detail=False, methods=['PATCH'])
     def set_public(self, request, pk):
         instance = self.get_object()
         instance.is_public = True

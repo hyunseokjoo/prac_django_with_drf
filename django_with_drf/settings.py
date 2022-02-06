@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Third
     'rest_framework',
+    'rest_framework.authtoken',
     # App
     'instagram',
     'accounts',
@@ -126,6 +127,11 @@ STATIC_URL = '/static/'
 
 
 REST_FRAMEWORK ={
+    # Token
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
     # Paginate
     'PAGE_SIZE': 5,
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
