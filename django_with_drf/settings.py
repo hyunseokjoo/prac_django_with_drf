@@ -125,9 +125,21 @@ STATIC_URL = '/static/'
 
 
 REST_FRAMEWORK ={
+    # Paginate
     'PAGE_SIZE': 5,
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    # Permissino
     'DEFAULT_PERMISSION_CLASSES': [
       'rest_framework.permissions.IsAuthenticated',
     ],
+    # Throttle
+    'DEFAULT_THROTTLE_CLASSES': [
+       'rest_framework.throttling.UserRateThrottle',
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        #'anon':None,   # 익명의 경우
+        'user': '3/day', # 유저의 한해서 하루에 요청횟수 3회
+    },
 }
+
+
