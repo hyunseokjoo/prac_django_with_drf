@@ -1,5 +1,6 @@
 from rest_framework import generics
 from rest_framework.decorators import api_view, action
+from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -37,6 +38,10 @@ class PostViewSet(ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticated, IsAuthorOrReadonly]
+    filter_backends = [SearchFilter, OrderingFilter]
+    search_fields = ['message'] # 검색할 필드 정의 , 문자열 필드만 지정가능
+    ordering_fields = ['pk'] # 지정된 필드 정렬 기중 정의, 지정안하면 모든 필드 지정
+    ordering = ['pk'] # 디폴트 정렬
     
     # create하는 함수이지만 재정의 하여 사용할 수 있다
     # ip는 자동으로 들어가야하는 주소이므로 재정의 하여 save할때 자동으로 들어가게끔 정의 해주는것이 맞다.
