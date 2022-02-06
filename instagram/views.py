@@ -34,10 +34,32 @@ class PostViewSet(ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
+    # 들어오기 전에 먼저 dispatch내용을 적용하고 PostViewSet으로 들어온다
     def dispatch(self, request, *args, **kwargs):
         print("request:body", request.body)
         print("reuqest.POST", request.POST)
         return super().dispatch(request, *args, **kwargs)
+
+    def list(self, request, *args, **kwargs):
+        queryset = Post.objects.all()
+        serializer = PostSerializer(queryset, many=True)
+        return Response(serializer.data) #이하 생략
+
+    def create(self, request, *args, **kwargs):
+        #is_valide()
+        pass
+
+    def retrieve(self, request, *args, **kwargs):
+        pass
+
+    def update(self, request, *args, **kwargs):
+        pass
+
+    def partial_update(self, request, *args, **kwargs):
+        pass
+
+    def destroy(self, request, *args, **kwargs):
+        pass
 
 # method를
 # class Post_list(request):
