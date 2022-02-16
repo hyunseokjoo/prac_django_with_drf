@@ -1,13 +1,16 @@
 # Django 기본 파일
 ### 기본 프로젝트 생성 시 파일구조
-```c
+```
 project 
 ├── project_name
-│  ├── db.sqlite3
-│  ├── manage.py
+│  ├── __init__.py
 │  ├── settings.py
 │  ├── urls.py
+│  ├── asgi.py
 │  └── wsgi.py
+├── .gitignore
+├── db.sqlite3
+├── manage.py
 └── requirements.txt
 ```
 - manage.py : 사이트 관리를 도와주는 역할을 하는 스크립트, 서버구동, model생성 등 내용이 들어 있는 스크립트
