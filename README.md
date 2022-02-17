@@ -18,3 +18,10 @@ project
 - urls.py : web url주소를 관리하는 파일이다. project에 urls 에서는 기본적인 url동작이나 앱에서 연결 시켜주는 url 등을 관리한다.
 - wsgi.py : wsgi(Web Server Gateway Interface)란 웹서버와 파이썬 웹 애플리케이션 개발 환경 간의 인터페이스에 대한 규칙을 정의한다.
 - requirements.txt : 자신이 설치한 라이브러리들을 정리하여 넣을 수 있는 텍스트 파일 
+
+### DRF(Django Rest Framework)
+- Django에서 Restful API를 구현하기 위해 사용되는 서드파티 라이브러리다.
+- router, serializer, viewset을 이용하여 Restful API를 구현하는데 앞에 3가지는 꼭 알아 두자
+- Serializer
+  + [Serializer](https://github.com/hyunseokjoo/prac_django_with_drf/tree/main/info/serializer) CS통신 시 자주 사용하는 JSON파일로 직렬화하는 법
+  + [Validation](https://github.com/hyunseokjoo/prac_django_with_drf/tree/main/info/validation) CS통신 시 Serializer에서 데이터 검증하는 방법들
