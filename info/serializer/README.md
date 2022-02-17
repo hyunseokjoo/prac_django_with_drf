@@ -64,8 +64,19 @@ class PersonSerializer(serializers.Serializer):
         instance.name = validated_data.get('name', instance.name)
         instance.age = validated_data.get('name', instance.age)
         return instance
+
+# save 함수 직접 정의하는 방법
+class ContactForm(serializers.Serializer):
+    email = serializers.EmailField()
+    message = serializers.CharField()
+
+    def save(self):
+        email = self.validated_data['email']
+        message = self.validated_data['message']
+        send_email(from=email, message=message)
 ```
 - 위와 같이 정의를 해놓으면 save()(ex-serializer.save())를 호출 시
 - instance가 없으면 create
 - instance가 있으면 update
 - 를 자동으로 해줌
+- save를 직접 가져와 정의 해줄 수도 있다.
