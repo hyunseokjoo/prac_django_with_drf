@@ -24,7 +24,6 @@ person = Person(name="홍길동", age="20")
 print(f"{person.name}, {person.age}")
 # 홍길동, 20
 ```
-- 
 ```python
 # Serializing(직렬화)    
 from rest_framework import serializers
