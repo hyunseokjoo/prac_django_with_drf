@@ -130,23 +130,19 @@ class PesonDetailAPIView(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 ```
 
-
-
-
-- APIView(FBV)를 이용한 request API 처리
 ```python
 #urls.py
 from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    # FBV
+    # CBV
     path('person/', views.PostListAPIView.as_view()),
     path('person/<int:pk>/',views.PostDetailAPIView.as_view()),
 ]
 ```
 
-
+- APIView(FBV)를 이용한 request API 처리
 ```python
 from rest_framework.response import Response
 from rest_framework.views import APIView
