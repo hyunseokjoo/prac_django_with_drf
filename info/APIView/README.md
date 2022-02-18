@@ -179,6 +179,17 @@ def post_detail(request, pk):
         post.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 ```
+```python 
+# urls.py 
+from django.urls import path, include 
+from . import views 
+
+urlpatterns = [ 
+  # FBV 
+  path('cbv/post/', views.post_list), 
+  path('cbv/post/<int:pk>/',views.post_detail), 
+]
+```
 
 ---
 -참조
