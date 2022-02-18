@@ -130,6 +130,10 @@ class PesonDetailAPIView(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 ```
 
+
+
+
+- APIView(FBV)를 이용한 request API 처리
 ```python
 #urls.py
 from django.urls import path, include
