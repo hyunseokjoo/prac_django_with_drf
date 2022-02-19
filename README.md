@@ -26,6 +26,6 @@ project
   + [Serializer](https://github.com/hyunseokjoo/prac_django_with_drf/tree/main/info/serializer) 자주 사용하는 JSON파일로 직렬화하는 법
   + [Validation](https://github.com/hyunseokjoo/prac_django_with_drf/tree/main/info/validation) Serializer에서 데이터 검증하는 방법들
   + [ModelSerializer활용법](https://github.com/hyunseokjoo/prac_django_with_drf/tree/main/info/ModelSerializer%EA%B5%AC%ED%98%84)
-  + [APIView 내용 정리](https://github.com/hyunseokjoo/prac_django_with_drf/tree/main/info/APIView)
-  + [generics APIView 내용 정리](https://github.com/hyunseokjoo/prac_django_with_drf/tree/main/info/generic%20APIView)
-  + [ViewSet 내용 정리](https://github.com/hyunseokjoo/prac_django_with_drf/tree/main/info/ViewSet)
+- [APIView 내용 정리](https://github.com/hyunseokjoo/prac_django_with_drf/tree/main/info/APIView)
+- [generics APIView 내용 정리](https://github.com/hyunseokjoo/prac_django_with_drf/tree/main/info/generic%20APIView)
+- [ViewSet 내용 정리](https://github.com/hyunseokjoo/prac_django_with_drf/tree/main/info/ViewSet)
